@@ -8,6 +8,6 @@ Enable/Disable root on all your Bluestacks devices
 
 2. Start bluestacksRooter.exe
 3. Choose Bluestacks path
-4. Click Root/Unroot
+4. Click Root/Disable root
 
 > Might need to start as admin
