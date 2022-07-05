@@ -98,9 +98,6 @@ namespace BluestacksRooter
 
             File.WriteAllText(fullPath, file);
 
-            attributes = attributes | FileAttributes.ReadOnly;
-            File.SetAttributes(fullPath, attributes);
-
             AppendText("Done! All devices are ", Color.Green);
             AppendText("unrooted", Color.Red, GetBoldFont());
             LogChanges("!", Color.Green);
