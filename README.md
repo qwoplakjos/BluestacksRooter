@@ -10,4 +10,4 @@ Enable/Disable root on all your Bluestacks devices
 3. Choose Bluestacks path
 4. Click Root/Unroot
 
-> Might need admin priveleges
+> Might need to start as admin
