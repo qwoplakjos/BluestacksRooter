@@ -115,6 +115,11 @@ namespace BluestacksRooter
             AppendText(change + Environment.NewLine, color);
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            fullPath = textBox1.Text;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -153,6 +158,22 @@ namespace BluestacksRooter
             richTextBox1.SelectionColor = color ?? Color.Black;
             richTextBox1.AppendText(text);
             richTextBox1.SelectionColor = richTextBox1.ForeColor;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
+            {
+                openFileDialog1.InitialDirectory = windrive;
+                openFileDialog1.Filter = "conf files (*.conf)|*.conf|All files (*.*)|*.*";
+                openFileDialog1.FilterIndex = 1;
+                openFileDialog1.RestoreDirectory = true;
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    textBox1.Text = openFileDialog1.FileName;
+                }
+            }
         }
     }
 }
