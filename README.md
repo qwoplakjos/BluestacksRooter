@@ -1,3 +1,3 @@
 # BluestacksRooter
 
-Root all your Bluestacks devices
+Enable root on all your Bluestacks devices
