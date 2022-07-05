@@ -64,7 +64,9 @@ namespace BluestacksRooter
             attributes = attributes | FileAttributes.ReadOnly;
             File.SetAttributes(fullPath, attributes);
 
-            LogChanges("Done! All devices now have root!", Color.Green);
+            AppendText("Done! All devices now have ", Color.Green);
+            AppendText("root", Color.Green, GetBoldFont());
+            LogChanges("!", Color.Green);
         }
 
 
@@ -100,8 +102,13 @@ namespace BluestacksRooter
             File.SetAttributes(fullPath, attributes);
 
             AppendText("Done! All devices are ", Color.Green);
-            AppendText("unrooted", Color.Red);
+            AppendText("unrooted", Color.Red, GetBoldFont());
             LogChanges("!", Color.Green);
+        }
+
+        private Font GetBoldFont()
+        {
+            return new Font(richTextBox1.Font.FontFamily, richTextBox1.Font.Size, FontStyle.Underline | FontStyle.Bold);
         }
 
         private void SetPath()
@@ -110,9 +117,9 @@ namespace BluestacksRooter
             fullPath = textBox1.Text;
         }
 
-        private void LogChanges(string change, Color? color = null)
+        private void LogChanges(string change, Color? color = null, Font font = default)
         {
-            AppendText(change + Environment.NewLine, color);
+            AppendText(change + Environment.NewLine, color, font);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -151,11 +158,12 @@ namespace BluestacksRooter
         }
 
 
-        public void AppendText(string text, Color? color)
+        public void AppendText(string text, Color? color, Font font = default)
         {
             richTextBox1.SelectionStart = richTextBox1.TextLength;
             richTextBox1.SelectionLength = 0;
             richTextBox1.SelectionColor = color ?? Color.Black;
+            richTextBox1.SelectionFont = font == default ? richTextBox1.Font : font;
             richTextBox1.AppendText(text);
             richTextBox1.SelectionColor = richTextBox1.ForeColor;
         }
