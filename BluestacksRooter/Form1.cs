@@ -169,6 +169,7 @@ namespace BluestacksRooter
                 openFileDialog1.FilterIndex = 1;
                 openFileDialog1.RestoreDirectory = true;
 
+
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     textBox1.Text = openFileDialog1.FileName;
